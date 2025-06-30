@@ -17,7 +17,7 @@ dir_name = 'data'
 n_fft = 1024
 
 data = []
-for file in tqdm(file_names[:10]):
+for file in tqdm(file_names[:30]):
     waveform, sample_rate = torchaudio.load(f"{dir_name}/{file}")
     data.append(waveform.mean(dim=0, keepdim=True))
 
