@@ -12,6 +12,7 @@ elif torch.cuda.is_available():
 else:
     device = torch.device("cpu")  
 
+
 file_names = [e for e in os.walk('data')][0][2]
 dir_name = 'data'
 n_fft = 1024
@@ -31,6 +32,6 @@ seq_len = 100
 for e in tqdm(data):
     e = transform(e)[0]
     for i in range(0, e.shape[1] - seq_len):
-        X.append(e[:, i:i+seq_len].to(device))
-        y.append(e[:, i+seq_len].to(device))
+        X.append(e[:, i:i+seq_len])
+        y.append(e[:, i+seq_len])
 
